@@ -429,9 +429,7 @@ function requireJsxRuntime () {
 
 var jsxRuntimeExports = requireJsxRuntime();
 
-function Button() {
-    return (jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: jsxRuntimeExports.jsx("button", { children: "Text 4" }) }));
-}
+const Button = ({ children }) => jsxRuntimeExports.jsx("button", { children: children });
 
-exports.MyButton = Button;
+exports.Button = Button;
 //# sourceMappingURL=index.js.map

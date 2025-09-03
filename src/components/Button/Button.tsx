@@ -1,7 +1,2 @@
-export default function Button() {
-    return (
-        <>
-            <button>Text 4</button>
-        </>
-    )
-}
+const Button = ({ children }: any) => <button>{children}</button>;
+export default Button;
