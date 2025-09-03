@@ -9,14 +9,17 @@ interface ButtonProps {
     className?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({
-    children,
-    onClick,
-    disabled = false,
-    variant = 'primary',
-    size = 'md',
-    className = ''
-}) => {
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((
+    {
+        children,
+        onClick,
+        disabled = false,
+        variant = 'primary',
+        size = 'md',
+        className = ''
+    },
+    ref
+) => {
     const baseStyles = 'px-4 py-2 rounded font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
 
     const variantStyles = {
@@ -41,6 +44,7 @@ const Button: React.FC<ButtonProps> = ({
 
     return (
         <button
+            ref={ref}
             className={classes}
             onClick={onClick}
             disabled={disabled}
@@ -48,7 +52,9 @@ const Button: React.FC<ButtonProps> = ({
             {children}
         </button>
     );
-};
+});
+
+Button.displayName = 'Button';
 
 export default Button;
 export type { ButtonProps };

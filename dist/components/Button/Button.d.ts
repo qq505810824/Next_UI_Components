@@ -7,7 +7,7 @@ interface ButtonProps {
     size?: 'sm' | 'md' | 'lg';
     className?: string;
 }
-declare const Button: React.FC<ButtonProps>;
+declare const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLButtonElement>>;
 export default Button;
 export type { ButtonProps };
 //# sourceMappingURL=Button.d.ts.map
