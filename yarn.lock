@@ -429,6 +429,23 @@ detect-libc@^2.0.4:
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-2.0.4.tgz#f04715b8ba815e53b4d8109655b6508a6865a7e8"
   integrity sha512-3UDv+G9CsCKO1WKMGw9fwq/SWJYbI0c5Y7LU1AXYoDdbhE2AHQ6N6Nb34sG8Fj7T5APy8qXDCKuuIHd1BR0tVA==
 
+"docai-react@github:qq505810824/Next_UI_Components":
+  version "1.0.1"
+  resolved "https://codeload.github.com/qq505810824/Next_UI_Components/tar.gz/22174793c0d42b4beacc76cfab22770c4b8fe347"
+  dependencies:
+    "@rollup/plugin-commonjs" "^28.0.6"
+    "@rollup/plugin-json" "^6.1.0"
+    "@rollup/plugin-node-resolve" "^16.0.1"
+    "@types/react" "^19.1.12"
+    "@types/react-dom" "^19.1.9"
+    next "^15.5.2"
+    react "^19.1.1"
+    react-dom "^19.1.1"
+    rollup "^4.50.0"
+    rollup-plugin-typescript2 "^0.36.0"
+    tslib "^2.8.1"
+    typescript "^5.9.2"
+
 estree-walker@^2.0.1, estree-walker@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-2.0.2.tgz#52f010178c2a4c117a7757cfe942adb7d2da4cac"
