@@ -1,7 +1,7 @@
 export default function Button() {
     return (
         <>
-            <button>Text</button>
+            <button>Text 1</button>
         </>
     )
 }
