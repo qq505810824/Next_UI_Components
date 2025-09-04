@@ -318,5 +318,7 @@ const ImageViewer = React.forwardRef<HTMLDivElement, ImageViewerProps>((
     );
 })
 
+ImageViewer.displayName = 'ImageViewer';
+
 export default ImageViewer;
 export type { ImageViewerProps };
