@@ -1,6 +1,6 @@
 'use strict';
 
-var require$$0 = require('react');
+var React = require('react');
 
 var jsxRuntime = {exports: {}};
 
@@ -21,7 +21,7 @@ var hasRequiredReactJsxRuntime_production_min;
 function requireReactJsxRuntime_production_min () {
 	if (hasRequiredReactJsxRuntime_production_min) return reactJsxRuntime_production_min;
 	hasRequiredReactJsxRuntime_production_min = 1;
-var f=require$$0,k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:true,ref:true,__self:true,__source:true};
+var f=React,k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:true,ref:true,__self:true,__source:true};
 	function q(c,a,g){var b,d={},e=null,h=null;void 0!==g&&(e=""+g);void 0!==a.key&&(e=""+a.key);void 0!==a.ref&&(h=a.ref);for(b in a)m.call(a,b)&&!p.hasOwnProperty(b)&&(d[b]=a[b]);if(c&&c.defaultProps)for(b in a=c.defaultProps,a) void 0===d[b]&&(d[b]=a[b]);return {$$typeof:k,type:c,key:e,ref:h,props:d,_owner:n.current}}reactJsxRuntime_production_min.Fragment=l;reactJsxRuntime_production_min.jsx=q;reactJsxRuntime_production_min.jsxs=q;
 	return reactJsxRuntime_production_min;
 }
@@ -47,7 +47,7 @@ function requireReactJsxRuntime_development () {
 	if (process.env.NODE_ENV !== "production") {
 	  (function() {
 
-	var React = require$$0;
+	var React$1 = React;
 
 	// ATTENTION
 	// When adding new symbols to this file,
@@ -82,7 +82,7 @@ function requireReactJsxRuntime_development () {
 	  return null;
 	}
 
-	var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+	var ReactSharedInternals = React$1.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
 
 	function error(format) {
 	  {
@@ -1365,7 +1365,7 @@ function requireJsxRuntime () {
 
 var jsxRuntimeExports = requireJsxRuntime();
 
-const Button = require$$0.forwardRef(({ children, onClick, disabled = false, variant = 'primary', size = 'md', className = '' }, ref) => {
+const Button = React.forwardRef(({ children, onClick, disabled = false, variant = 'primary', size = 'md', className = '' }, ref) => {
     const baseStyles = 'px-4 py-2 rounded font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
     const variantStyles = {
         primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
@@ -1388,12 +1388,12 @@ const Button = require$$0.forwardRef(({ children, onClick, disabled = false, var
 });
 Button.displayName = 'Button';
 
-const ImageViewer = require$$0.forwardRef(({ images, currentIndex = 0, onIndexChange, title, className = '', showNavigation = true, showZoomControls = true, showFullscreen = true, minHeight = '300px', maxHeight = '70vh', height, matchParentHeight = false }, ref) => {
-    const [localIndex, setLocalIndex] = require$$0.useState(currentIndex);
-    const [scale, setScale] = require$$0.useState(1);
-    const [isModalOpen, setIsModalOpen] = require$$0.useState(false);
+const ImageViewer = React.forwardRef(({ images, currentIndex = 0, onIndexChange, title, className = '', showNavigation = true, showZoomControls = true, showFullscreen = true, minHeight = '300px', maxHeight = '70vh', height, matchParentHeight = false }, ref) => {
+    const [localIndex, setLocalIndex] = React.useState(currentIndex);
+    const [scale, setScale] = React.useState(1);
+    const [isModalOpen, setIsModalOpen] = React.useState(false);
     const imageIndex = onIndexChange ? currentIndex : localIndex;
-    const handleIndexChange = require$$0.useCallback((newIndex) => {
+    const handleIndexChange = React.useCallback((newIndex) => {
         const clampedIndex = Math.max(0, Math.min(newIndex, images.length - 1));
         if (onIndexChange) {
             onIndexChange(clampedIndex);
@@ -1494,7 +1494,7 @@ var defaultAttributes = {
  */
 
 
-const Icon = require$$0.forwardRef(
+const Icon = React.forwardRef(
   ({
     color = "currentColor",
     size = 24,
@@ -1504,7 +1504,7 @@ const Icon = require$$0.forwardRef(
     children,
     iconNode,
     ...rest
-  }, ref) => require$$0.createElement(
+  }, ref) => React.createElement(
     "svg",
     {
       ref,
@@ -1518,7 +1518,7 @@ const Icon = require$$0.forwardRef(
       ...rest
     },
     [
-      ...iconNode.map(([tag, attrs]) => require$$0.createElement(tag, attrs)),
+      ...iconNode.map(([tag, attrs]) => React.createElement(tag, attrs)),
       ...Array.isArray(children) ? children : [children]
     ]
   )
@@ -1533,8 +1533,8 @@ const Icon = require$$0.forwardRef(
 
 
 const createLucideIcon = (iconName, iconNode) => {
-  const Component = require$$0.forwardRef(
-    ({ className, ...props }, ref) => require$$0.createElement(Icon, {
+  const Component = React.forwardRef(
+    ({ className, ...props }, ref) => React.createElement(Icon, {
       ref,
       iconNode,
       className: mergeClasses(
@@ -1563,8 +1563,8 @@ const __iconNode = [
 ];
 const X = createLucideIcon("x", __iconNode);
 
-const TagInput = ({ tags, onChange, placeholder = '输入标签后按回车添加', className = '' }) => {
-    const [inputValue, setInputValue] = require$$0.useState('');
+const TagInput = React.forwardRef(({ tags, onChange, placeholder = '输入标签后按回车添加', className = '' }, ref) => {
+    const [inputValue, setInputValue] = React.useState('');
     const handleKeyDown = (e) => {
         if (e.key === 'Enter' || e.key === ',') {
             e.preventDefault();
@@ -1586,7 +1586,7 @@ const TagInput = ({ tags, onChange, placeholder = '输入标签后按回车添�
         onChange(tags.filter((_, index) => index !== indexToRemove));
     };
     return (jsxRuntimeExports.jsx("div", { className: `min-h-[40px] border border-gray-300 rounded-md p-2 focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500 ${className}`, children: jsxRuntimeExports.jsxs("div", { className: "flex flex-wrap gap-2 items-center", children: [tags.map((tag, index) => (jsxRuntimeExports.jsxs("span", { className: "inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800", children: [tag, jsxRuntimeExports.jsx("button", { type: "button", onClick: () => removeTag(index), className: "ml-1 inline-flex items-center justify-center w-4 h-4 rounded-full hover:bg-blue-200", children: jsxRuntimeExports.jsx(X, { size: 12 }) })] }, index))), jsxRuntimeExports.jsx("input", { type: "text", value: inputValue, onChange: (e) => setInputValue(e.target.value), onKeyDown: handleKeyDown, onBlur: addTag, placeholder: tags.length === 0 ? placeholder : '', className: "flex-1 min-w-[120px] outline-none bg-transparent" })] }) }));
-};
+});
 TagInput.displayName = 'TagInput';
 
 exports.Button = Button;

@@ -9,12 +9,13 @@ interface TagInputProps {
     className?: string;
 }
 
-const TagInput: React.FC<TagInputProps> = ({
-    tags,
-    onChange,
-    placeholder = '输入标签后按回车添加',
-    className = ''
-}) => {
+const TagInput = React.forwardRef<HTMLDivElement, TagInputProps>((
+    {
+        tags,
+        onChange,
+        placeholder = '输入标签后按回车添加',
+        className = ''
+    }, ref) => {
     const [inputValue, setInputValue] = useState('');
 
     const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -71,6 +72,6 @@ const TagInput: React.FC<TagInputProps> = ({
             </div>
         </div>
     );
-};
+});
 TagInput.displayName = 'TagInput';
 export default TagInput;

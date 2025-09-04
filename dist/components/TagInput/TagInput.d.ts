@@ -5,6 +5,6 @@ interface TagInputProps {
     placeholder?: string;
     className?: string;
 }
-declare const TagInput: React.FC<TagInputProps>;
+declare const TagInput: React.ForwardRefExoticComponent<TagInputProps & React.RefAttributes<HTMLDivElement>>;
 export default TagInput;
 //# sourceMappingURL=TagInput.d.ts.map
