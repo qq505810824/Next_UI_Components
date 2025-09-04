@@ -1,4 +1,5 @@
-export interface ImageViewerProps {
+import React from 'react';
+interface ImageViewerProps {
     images: string[];
     currentIndex?: number;
     onIndexChange?: (index: number) => void;
@@ -12,5 +13,7 @@ export interface ImageViewerProps {
     height?: string;
     matchParentHeight?: boolean;
 }
-export default function ImageViewer({ images, currentIndex, onIndexChange, title, className, showNavigation, showZoomControls, showFullscreen, minHeight, maxHeight, height, matchParentHeight }: ImageViewerProps): import("react/jsx-runtime").JSX.Element;
+declare const ImageViewer: React.ForwardRefExoticComponent<ImageViewerProps & React.RefAttributes<HTMLDivElement>>;
+export default ImageViewer;
+export type { ImageViewerProps };
 //# sourceMappingURL=ImageViewer.d.ts.map
