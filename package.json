@@ -7,7 +7,6 @@
     "author": "feiteng",
     "license": "MIT",
     "types": "dist/index.d.ts",
-    "type": "module",
     "module": "dist/index.esm.js",
     "scripts": {
         "build": "rollup -c"
