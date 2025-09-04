@@ -1,8 +1,8 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
-export interface ImageViewerProps {
+interface ImageViewerProps {
     images: string[];
     currentIndex?: number;
     onIndexChange?: (index: number) => void;
@@ -17,20 +17,21 @@ export interface ImageViewerProps {
     matchParentHeight?: boolean; // 新增：是否匹配父容器高度
 }
 
-export default function ImageViewer({
-    images,
-    currentIndex = 0,
-    onIndexChange,
-    title,
-    className = '',
-    showNavigation = true,
-    showZoomControls = true,
-    showFullscreen = true,
-    minHeight = '300px',
-    maxHeight = '70vh',
-    height,
-    matchParentHeight = false
-}: ImageViewerProps) {
+const ImageViewer = React.forwardRef<HTMLDivElement, ImageViewerProps>((
+    {
+        images,
+        currentIndex = 0,
+        onIndexChange,
+        title,
+        className = '',
+        showNavigation = true,
+        showZoomControls = true,
+        showFullscreen = true,
+        minHeight = '300px',
+        maxHeight = '70vh',
+        height,
+        matchParentHeight = false
+    }, ref) => {
     const [localIndex, setLocalIndex] = useState(currentIndex);
     const [scale, setScale] = useState(1);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -315,4 +316,7 @@ export default function ImageViewer({
             )}
         </>
     );
-}
+})
+
+export default ImageViewer;
+export type { ImageViewerProps };
