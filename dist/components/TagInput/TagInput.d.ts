@@ -7,4 +7,5 @@ interface TagInputProps {
 }
 declare const TagInput: React.ForwardRefExoticComponent<TagInputProps & React.RefAttributes<HTMLDivElement>>;
 export default TagInput;
+export type { TagInputProps };
 //# sourceMappingURL=TagInput.d.ts.map
