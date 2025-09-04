@@ -17,6 +17,7 @@
         "@rollup/plugin-node-resolve": "^16.0.1",
         "@types/react": "^18.0.0",
         "@types/react-dom": "^18.0.0",
+        "lucide-react": "^0.542.0",
         "next": "^15.5.2",
         "react": "^18.0.0",
         "react-dom": "^18.0.0",

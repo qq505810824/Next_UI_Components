@@ -1440,6 +1440,156 @@ const ImageViewer = require$$0.forwardRef(({ images, currentIndex = 0, onIndexCh
 });
 ImageViewer.displayName = 'ImageViewer';
 
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+const toKebabCase = (string) => string.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
+const toCamelCase = (string) => string.replace(
+  /^([A-Z])|[\s-_]+(\w)/g,
+  (match, p1, p2) => p2 ? p2.toUpperCase() : p1.toLowerCase()
+);
+const toPascalCase = (string) => {
+  const camelCase = toCamelCase(string);
+  return camelCase.charAt(0).toUpperCase() + camelCase.slice(1);
+};
+const mergeClasses = (...classes) => classes.filter((className, index, array) => {
+  return Boolean(className) && className.trim() !== "" && array.indexOf(className) === index;
+}).join(" ").trim();
+const hasA11yProp = (props) => {
+  for (const prop in props) {
+    if (prop.startsWith("aria-") || prop === "role" || prop === "title") {
+      return true;
+    }
+  }
+};
+
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+var defaultAttributes = {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: 24,
+  height: 24,
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 2,
+  strokeLinecap: "round",
+  strokeLinejoin: "round"
+};
+
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+
+const Icon = require$$0.forwardRef(
+  ({
+    color = "currentColor",
+    size = 24,
+    strokeWidth = 2,
+    absoluteStrokeWidth,
+    className = "",
+    children,
+    iconNode,
+    ...rest
+  }, ref) => require$$0.createElement(
+    "svg",
+    {
+      ref,
+      ...defaultAttributes,
+      width: size,
+      height: size,
+      stroke: color,
+      strokeWidth: absoluteStrokeWidth ? Number(strokeWidth) * 24 / Number(size) : strokeWidth,
+      className: mergeClasses("lucide", className),
+      ...!children && !hasA11yProp(rest) && { "aria-hidden": "true" },
+      ...rest
+    },
+    [
+      ...iconNode.map(([tag, attrs]) => require$$0.createElement(tag, attrs)),
+      ...Array.isArray(children) ? children : [children]
+    ]
+  )
+);
+
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+
+const createLucideIcon = (iconName, iconNode) => {
+  const Component = require$$0.forwardRef(
+    ({ className, ...props }, ref) => require$$0.createElement(Icon, {
+      ref,
+      iconNode,
+      className: mergeClasses(
+        `lucide-${toKebabCase(toPascalCase(iconName))}`,
+        `lucide-${iconName}`,
+        className
+      ),
+      ...props
+    })
+  );
+  Component.displayName = toPascalCase(iconName);
+  return Component;
+};
+
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+
+const __iconNode = [
+  ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
+  ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
+];
+const X = createLucideIcon("x", __iconNode);
+
+const TagInput = ({ tags, onChange, placeholder = '输入标签后按回车添加', className = '' }) => {
+    const [inputValue, setInputValue] = require$$0.useState('');
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter' || e.key === ',') {
+            e.preventDefault();
+            addTag();
+        }
+        else if (e.key === 'Backspace' && inputValue === '' && tags.length > 0) {
+            // 当输入框为空且按退格键时，删除最后一个标签
+            removeTag(tags.length - 1);
+        }
+    };
+    const addTag = () => {
+        const trimmedValue = inputValue.trim();
+        if (trimmedValue && !tags.includes(trimmedValue)) {
+            onChange([...tags, trimmedValue]);
+            setInputValue('');
+        }
+    };
+    const removeTag = (indexToRemove) => {
+        onChange(tags.filter((_, index) => index !== indexToRemove));
+    };
+    return (jsxRuntimeExports.jsx("div", { className: `min-h-[40px] border border-gray-300 rounded-md p-2 focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500 ${className}`, children: jsxRuntimeExports.jsxs("div", { className: "flex flex-wrap gap-2 items-center", children: [tags.map((tag, index) => (jsxRuntimeExports.jsxs("span", { className: "inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800", children: [tag, jsxRuntimeExports.jsx("button", { type: "button", onClick: () => removeTag(index), className: "ml-1 inline-flex items-center justify-center w-4 h-4 rounded-full hover:bg-blue-200", children: jsxRuntimeExports.jsx(X, { size: 12 }) })] }, index))), jsxRuntimeExports.jsx("input", { type: "text", value: inputValue, onChange: (e) => setInputValue(e.target.value), onKeyDown: handleKeyDown, onBlur: addTag, placeholder: tags.length === 0 ? placeholder : '', className: "flex-1 min-w-[120px] outline-none bg-transparent" })] }) }));
+};
+TagInput.displayName = 'TagInput';
+
 exports.Button = Button;
 exports.ImageViewer = ImageViewer;
+exports.TagInput = TagInput;
 //# sourceMappingURL=index.js.map
